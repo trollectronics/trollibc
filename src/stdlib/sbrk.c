@@ -1,5 +1,10 @@
 #include <stdint.h>
 #include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+#include <mem.h>
 
 extern uint8_t end;
 

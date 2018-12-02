@@ -2,7 +2,7 @@
 #define STDLIB_H_
 
 #include <stddef.h>
-
+#include <stdint.h>
 
 void *calloc(size_t nmemb, size_t size);
 void *sbrk(intptr_t increment);

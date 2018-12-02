@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <string.h>
 
 size_t strnlen(const char *c, size_t maxlen) {
 	size_t i;

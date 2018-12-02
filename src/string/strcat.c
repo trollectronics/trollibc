@@ -1,3 +1,6 @@
+#include <stddef.h>
+#include <string.h>
+
 char *strcat(char *dest, const char *src) {
 	char *ret = dest;
 	while(*dest++);

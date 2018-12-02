@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include <stddef.h>
+#include <string.h>
 
 void *memmove(void *dest, const void *src, size_t n) {
 	uint8_t *p1 = dest;

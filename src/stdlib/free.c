@@ -1,5 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include <mem.h>
+
+#include "malloc.h"
 
 /**
  * Free allocated memory

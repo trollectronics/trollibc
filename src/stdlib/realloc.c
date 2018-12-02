@@ -1,3 +1,10 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include "malloc.h"
+
 /**
  * Change the size of an allocated memory block.
  * Can both grow and shrink. Will allocate a new block,
