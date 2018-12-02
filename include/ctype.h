@@ -3,5 +3,7 @@
 
 int isalpha(int c);
 int isdigit(int c);
+int tolower(char c);
+int toupper(char c);
 
 #endif
