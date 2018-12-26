@@ -1,8 +1,13 @@
 TOPDIR	=	$(shell DIR=.; while [ ! "`readlink -f \"$${DIR}\"`" = "/" -a ! -f "$${DIR}/config.mk" ]; do DIR="../$${DIR}"; done; echo "$${DIR}")
 ifeq ($(shell readlink -f "$(TOPDIR)"),/)
-	$(error Could not find the project top directory with config.mk)
+TOPDIR	=	$(shell DIR=.; while [ ! "`readlink -f \"$${DIR}\"`" = "/" -a ! -f "$${DIR}/standalone.mk" ]; do DIR="../$${DIR}"; done; echo "$${DIR}")
+ifeq ($(shell readlink -f "$(TOPDIR)"),/)
+$(error Could not find the project top directory with config.mk)
 endif
+else
 include $(TOPDIR)/config.mk
+endif
+
 
 ASMFILES	=	$(wildcard *.S)
 SRCFILES	=	$(wildcard *.c)
