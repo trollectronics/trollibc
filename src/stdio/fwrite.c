@@ -13,22 +13,12 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream) {
 		return 0;
 	
 	for(i = 0; i < nmemb; i++) {
-		switch(f->type) {
-			case FILE_TYPE_POSIX:
-				if((r = write(f->fd, ptr, size)) < 0) {
-					f->error = 1;
-					return count;
-				}
-				break;
-			
-			case FILE_TYPE_MEM:
-				memcpy(f->data, ptr, size);
-				r = size;
-				f->data += size;
-				break;
-		}
+		//TODO: handle errors
+		r = f->handler->write(ptr, size, f);
 		ptr += size;
 		count += r;
+		if(f->error)
+			return count;
 	}
 	
 	return count;
