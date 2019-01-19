@@ -2,6 +2,7 @@
 #define STDIO_H_
 
 #include <stddef.h>
+#include <stdarg.h>
 
 typedef void FILE;
 
@@ -14,8 +15,8 @@ size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);
 int fputc(int c, FILE *stream);
 int fputs(const char *s, FILE *stream);
 
-int vfprintf(FILE *stream, char *format, va_list va);
-int vprintf(char *format, va_list va);
-int printf(char *format, ...);
+int vfprintf(FILE *stream, const char *format, va_list va);
+int vprintf(const char *format, va_list va);
+int printf(const char *format, ...);
 
 #endif

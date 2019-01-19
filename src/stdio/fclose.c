@@ -8,5 +8,5 @@ int fclose(FILE *stream) {
 	if(!stream)
 		return -1;
 	
-	return ((File *) stream)->handler->fclose((File *) stream);
+	return ((File *) stream)->handler->close((File *) stream);
 }

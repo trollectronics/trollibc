@@ -4,7 +4,7 @@
 
 size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream) {
 	size_t i;
-	ssize_t r;
+	size_t r;
 	size_t count = 0;
 	
 	File *f = (File *) stream;

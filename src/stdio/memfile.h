@@ -4,9 +4,9 @@
 #include <stddef.h>
 #include <sys/file.h>
 
-extern FileHandler file_hander_memfile;
+extern FileHandler file_handler_memfile;
 
-size_t file_handler_memfile_read(const void *ptr, size_t size, File *f);
+size_t file_handler_memfile_read(void *ptr, size_t size, File *f);
 size_t file_handler_memfile_write(const void *ptr, size_t size, File *f);
 
 #endif

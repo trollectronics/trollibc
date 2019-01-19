@@ -2,15 +2,16 @@
 #include <string.h>
 #include <sys/file.h>
 #include "file.h"
+#include "memfile.h"
 
-FileHandler file_hander_memfile = {
-	open = NULL,
-	close = NULL,
-	read = file_handler_memfile_read,
-	write = file_handler_memfile_write,
+FileHandler file_handler_memfile = {
+	.open = NULL,
+	.close = NULL,
+	.read = file_handler_memfile_read,
+	.write = file_handler_memfile_write,
 };
 
-size_t file_handler_memfile_read(const void *ptr, size_t size, File *f) {
+size_t file_handler_memfile_read(void *ptr, size_t size, File *f) {
 	if(!f)
 		return 0;
 	
