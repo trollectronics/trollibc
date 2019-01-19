@@ -17,6 +17,7 @@ char *strcpy(char *dest, const char *src);
 int strcmp(const char *s1, const char *s2);
 int strncmp(const char *s1, const char *s2, size_t n);
 char *strchr(const char *str, char chr);
+char *strrchr(const char *str, char chr);
 
 char *strsep(char **stringp, const char *delim);
 char *strpbrk(const char *s, const char *accept);
