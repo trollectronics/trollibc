@@ -3,6 +3,7 @@
 
 int isalpha(int c);
 int isdigit(int c);
+int isspace(int c);
 int tolower(char c);
 int toupper(char c);
 
