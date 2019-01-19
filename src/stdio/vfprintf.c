@@ -38,9 +38,10 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 	char buf[25];
 	buf[24] = 0;
 	
-	for(i=0; (c = *format++); i++) {
+	for(i=0; (c = *format++);) {
 		if(c != '%') {
 			fputc(c, f);
+			i++;
 			continue;
 		}
 		length = LENGTH_INT;
@@ -55,6 +56,7 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 					goto end;
 				case '%':
 					fputc(c, f);
+					i++;
 					goto next;
 				case '#':
 					prefix = 1;
@@ -85,8 +87,10 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 					break;
 				case 'o':
 					base = 8;
-					if(prefix)
+					if(prefix) {
 						fputc('0', f);
+						i++;
+					}
 					goto baseconv;
 				case 'p':
 					length = sizeof(void *);
@@ -94,8 +98,10 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 				case 'x':
 				case 'X':
 					base = 16;
-					if(prefix)
+					if(prefix) {
 						fputs("0x", f);
+						i += 2;
+					}
 				case 'u':
 					baseconv:
 					switch(length) {
@@ -141,15 +147,16 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 					}
 					if(signum < 0) {
 						fputc('-', f);
+						i++;
 						num = -signum;
 					} else
 						num = signum;
 					goto print_num;
 				case 's':
-					fputs(va_arg(va, char *), f);
+					i += fputs(va_arg(va, char *), f);
 					goto next;
 				case 'c':
-					fputc((char) va_arg(va, int), f);
+					i += fputc((char) va_arg(va, int), f);
 					goto next;
 			}
 		}
@@ -161,9 +168,10 @@ int vfprintf(FILE *f, const char *format, va_list va) {
 		else
 			while(width > j)  {
 				fputc(pad, f);
+				i++;
 				width--;
 			}
-		fwrite(s, 1, width, f);
+		i += fwrite(s, 1, width, f);
 		next:;
 	}
 	end:

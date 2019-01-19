@@ -2,5 +2,5 @@
 #include <string.h>
 
 int fputs(const char *s, FILE *stream) {
-	fwrite(s, 1, strlen(s), stream);
+	return fwrite(s, 1, strlen(s), stream);
 }

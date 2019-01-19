@@ -18,5 +18,7 @@ int fputs(const char *s, FILE *stream);
 int vfprintf(FILE *stream, const char *format, va_list va);
 int vprintf(const char *format, va_list va);
 int printf(const char *format, ...);
+int vsprintf(char *str, const char *format, va_list va);
+int sprintf(char *str, const char *format, ...);
 
 #endif

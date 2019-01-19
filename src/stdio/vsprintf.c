@@ -12,6 +12,8 @@ int vsprintf(char *str, const char *format, va_list va) {
 	};
 	
 	r = vfprintf((FILE *) &memfile, format, va);
+	if(r >= 0)
+		str[r] = 0;
 	
 	return r;
 }
