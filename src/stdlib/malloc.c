@@ -46,15 +46,13 @@ static Header *getmore(size_t size) {
 	
 	return header;
 }
-
-
 /**
  * Allocate memory
  * 
  * @param size Size in bytes to be allocated
  * @return Pointer to avaible block of memory, or NULL on failure
  */
-void *malloc(size_t size) {
+void *real_malloc(size_t size) {
 	Header **iter, *header;
 	#if STRATEGY != 1
 	Header **tmp;

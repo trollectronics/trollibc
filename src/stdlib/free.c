@@ -11,7 +11,7 @@
  * 
  * @param ptr Pointer to a previously allocated block of memory
  */
-void free(void *ptr) {
+void real_free(void *ptr) {
 	Header **iter, *header;
 	bool hasmerged = false;
 	#if STRATEGY == 4
