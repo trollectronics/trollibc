@@ -18,6 +18,7 @@
  * 
  */
 
+void *sbrk(intptr_t increment);
 
 /*Pointer to the linked lists with free blocks*/
 Header *freelist[NRQUICKLISTS + 1];
