@@ -13,6 +13,10 @@ void *malloc(size_t size);
 void *realloc(void *ptr, size_t size);
 void free(void *ptr);
 
+unsigned int rand(void);
+void srand(unsigned int seed);
+
+
 long long int strtoll(const char *nptr, char **endptr, int base);
 
 #endif
