@@ -4,7 +4,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-typedef int64_t ssize_t;
 typedef int64_t off_t;
 
 void *real_calloc(size_t nmemb, size_t size);
