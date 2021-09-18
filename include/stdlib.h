@@ -11,6 +11,10 @@ void *real_malloc(size_t size);
 void *realloc(void *ptr, size_t size);
 void real_free(void *ptr);
 
+unsigned int rand(void);
+void srand(unsigned int seed);
+
+
 long long int strtoll(const char *nptr, char **endptr, int base);
 
 void *malloc_debug(size_t size, const char *f, int l);
