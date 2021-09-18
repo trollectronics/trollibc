@@ -3,7 +3,7 @@
 static uint32_t _rand_state = 0xDEADBEEF;
 
 unsigned int rand(void) {
-	uint32_t x = rand_state;
+	uint32_t x = _rand_state;
 
 	x ^= x << 13;
 	x ^= x >> 17;
